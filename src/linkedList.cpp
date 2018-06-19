@@ -1,3 +1,5 @@
+//#define NDEBUG  //work with assert()
+#include <assert.h>
 #include <iostream>
 #include "linkedList.h"
 using std::cout;
@@ -25,16 +27,16 @@ void LinkedList::printList(){
 
 void LinkedList::pushFront(int x){
 	ListNode * p_newNode = new ListNode(x); //allocate new memory
-	new_total += 1;
-	cout << "memory allocated: " << "(" << new_total << ")" << endl;
+	assert(new_total += 1);
+	assert(cout << "memory allocated: " << "(" << new_total << ")" << endl);
 	(p_newNode->mp_next) = mp_head;  
 	mp_head = p_newNode;
 }
 
 void LinkedList::pushBack(int x){
 	ListNode * p_newNode = new ListNode(x);
-	new_total += 1;
-	cout << "memory allocated: " << "(" << new_total << ")" << endl;
+	assert(new_total += 1);
+	assert(cout << "memory allocated: " << "(" << new_total << ")" << endl);
 
 	//if the list is empty, the newNode will be head node
 	if (mp_head == 0){
@@ -57,9 +59,11 @@ void LinkedList::clear(){
 	while(mp_head != 0){
 		ListNode * p_curNode = mp_head;
 		mp_head = (mp_head->mp_next);
+
 		delete p_curNode; //free memory
-		free_total +=1;
-		cout << "memory freed: " << "(" << free_total << ")" << endl;
+		assert(free_total +=1);
+		assert(cout << "memory freed: " << "(" << free_total << ")" << endl);
+		
 		p_curNode = 0;
 		
 	}
