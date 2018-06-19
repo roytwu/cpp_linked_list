@@ -17,7 +17,7 @@ void LinkedList::printList(){
 		cout << "List is empty.\n";
 	}
 	//curNode: current node
-	ListNode *p_curNode = mp_head;  
+	Node *p_curNode = mp_head;  
 	while(p_curNode !=0){
 		cout << (p_curNode->m_data) << " ";
 		p_curNode = (p_curNode->mp_next); //traseverse to next node
@@ -26,7 +26,7 @@ void LinkedList::printList(){
 }
 
 void LinkedList::pushFront(int x){
-	ListNode * p_newNode = new ListNode(x); //allocate new memory
+	Node * p_newNode = new Node(x); //allocate new memory
 	assert(new_total += 1);
 	assert(cout << "memory allocated: " << "(" << new_total << ")" << endl);
 	(p_newNode->mp_next) = mp_head;  
@@ -34,7 +34,7 @@ void LinkedList::pushFront(int x){
 }
 
 void LinkedList::pushBack(int x){
-	ListNode * p_newNode = new ListNode(x);
+	Node * p_newNode = new Node(x);
 	assert(new_total += 1);
 	assert(cout << "memory allocated: " << "(" << new_total << ")" << endl);
 
@@ -44,20 +44,26 @@ void LinkedList::pushBack(int x){
 		return;
 	}
 
-	ListNode * p_curNode = mp_head;
+	Node * p_curNode = mp_head;
 	while(p_curNode->mp_next != 0 ){
 		p_curNode = (p_curNode->mp_next);	
 	}
 	p_curNode->mp_next = p_newNode;
 }
 
-void LinkedList::deleteNode(int x){
+void LinkedList::deleteNode(int x){	
+	if (mp_head == 0){ return; }
 
+	Node * p_curNode = mp_head;
+
+	//if the head itself hod the data to be deleted
+	//search for the data to be deleted
+	
 }
 
 void LinkedList::clear(){
 	while(mp_head != 0){
-		ListNode * p_curNode = mp_head;
+		Node * p_curNode = mp_head;
 		mp_head = (mp_head->mp_next);
 
 		delete p_curNode; //free memory
@@ -65,6 +71,5 @@ void LinkedList::clear(){
 		assert(cout << "memory freed: " << "(" << free_total << ")" << endl);
 		
 		p_curNode = 0;
-		
 	}
 }
