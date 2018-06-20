@@ -12,7 +12,7 @@ OBJ_DIR = obj
 CC = g++
 CFLAGS = -Wall -I/$(SRC_DIR)
 LFLAGS = -lm
-TARGET_EXE = class_exe
+TARGET_EXE = list_exe
 
 
 SOURCE = $(wildcard $(SRC_DIR)/*.cpp)

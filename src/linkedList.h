@@ -11,6 +11,7 @@ public:
 	friend class LinkedList;
 };
 
+
 class LinkedList{
 private:
 	int m_size;

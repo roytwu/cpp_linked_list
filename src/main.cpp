@@ -11,10 +11,14 @@ int main(){
 	o_list.pushFront(1);
 	o_list.pushFront(2);
 	o_list.pushBack(3);
+	o_list.pushBack(4);
 	o_list.printList();
 
+	o_list.deleteNode(2);
+
+
+
+	cout << endl << "-----Clear list-----" << endl; 
 	o_list.clear();
-	o_list.printList();
-
 	return 0;
 }
