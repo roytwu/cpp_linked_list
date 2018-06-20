@@ -51,6 +51,7 @@ void LinkedList::pushFront(int x){
 
 	(p_newNode->mp_next) = mp_head;  
 	mp_head = p_newNode;
+	m_size++;
 }
 
 
@@ -70,6 +71,7 @@ void LinkedList::pushBack(int x){
 		p_curNode = (p_curNode->mp_next);	
 	}
 	p_curNode->mp_next = p_newNode;
+	m_size++;
 }
 
 
@@ -88,6 +90,7 @@ void LinkedList::deleteNode(int x){
 		debug_memFree();
 
 		p_curNode =0;
+		m_size--;
 		return;
 	}
 
@@ -106,6 +109,7 @@ void LinkedList::deleteNode(int x){
 			debug_memFree();
 
 			p_nxtNode = 0;
+			m_size++;
 		}
 		p_curNode = p_nxtNode; //moving one to check the next node
 		if(p_curNode->mp_next == 0) { 
@@ -127,6 +131,7 @@ void LinkedList::clear(){
 		debug_memFree();
 
 		p_curNode = 0;
+		m_size = 0;
 	}	
 }
 
@@ -151,4 +156,8 @@ void LinkedList::reverse(){
 	p_curNode->mp_next = p_prevNode; //reverse the last node
 	mp_head = p_curNode; //the last node became the head node
 
+}
+
+int LinkedList::getListSize(){
+	return(m_size);	
 }

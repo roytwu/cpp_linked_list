@@ -26,13 +26,16 @@ private:
 	void debug_memFree();
 
 public:
-	LinkedList(): mp_head(0){};
+	LinkedList(): m_size(0), mp_head(0){};
 	void printList(); //print out linked list
 	void pushFront(int x); //adding node from the front 
 	void pushBack(int x);  //addiing node from the bact
 	void deleteNode(int x); //deleting a node with data x
 	void clear();  //destroy the list and free the memory
 	void reverse();
+
+	int getListSize();
+
 
 };
 // ----- ----- ----- ----- -----

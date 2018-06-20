@@ -19,7 +19,8 @@ int main(){
 	o_list.reverse();
 	o_list.printList();
 
-
+	int size = o_list.getListSize();
+	printf("There're %d nodes in the list.\n", size);
 
 
 	cout << endl << "-----Clear list-----" << endl; 
