@@ -5,11 +5,9 @@
 using std::cout;
 using std::endl;
 
-// //constructor
-// LinkedList::LinkedList(){}
-
 int LinkedList::new_total = 0;
 int LinkedList::free_total = 0;
+
 
 /*-----private functions-----*/
 void LinkedList::debug_memAlloc(){
@@ -27,17 +25,23 @@ void LinkedList::debug_memFree(){
 
 
 /*-----public functions-----*/
+//constructor
+//LinkedList::LinkedList(){}
+
+
 void LinkedList::printList(){
+	cout << endl;
 	if(mp_head == 0){
 		cout << "List is empty.\n";
 	}
 	//curNode: current node
 	Node *p_curNode = mp_head;  
-	while(p_curNode !=0){
+	while(p_curNode !=0)
+	{
 		cout << (p_curNode->m_data) << " ";
 		p_curNode = (p_curNode->mp_next); //traseverse to next node
 	}
-	cout << endl;
+	cout << endl << endl;
 }
 
 
@@ -61,7 +65,8 @@ void LinkedList::pushBack(int x){
 	}
 
 	Node * p_curNode = mp_head;
-	while(p_curNode->mp_next != 0 ){
+	while(p_curNode->mp_next != 0 )
+	{
 		p_curNode = (p_curNode->mp_next);	
 	}
 	p_curNode->mp_next = p_newNode;
@@ -103,14 +108,18 @@ void LinkedList::deleteNode(int x){
 			p_nxtNode = 0;
 		}
 		p_curNode = p_nxtNode; //moving one to check the next node
-		if(p_curNode->mp_next == 0) { return; }
+		if(p_curNode->mp_next == 0) { 
+			assert( cout << "Can't find matched node, return" << endl );
+			return; 
+		}
 	}
 
 }
 
 
 void LinkedList::clear(){
-	while(mp_head != 0){
+	while(mp_head != 0)
+	{
 		Node * p_curNode = mp_head;
 		mp_head = (mp_head->mp_next);
 
@@ -118,5 +127,28 @@ void LinkedList::clear(){
 		debug_memFree();
 
 		p_curNode = 0;
+	}	
+}
+
+
+void LinkedList::reverse(){
+	//if list is empty or list has only 1 node
+	if (mp_head==0 || mp_head->mp_next==0){return;}
+
+	Node * p_prevNode = 0;                //previous node
+	Node * p_curNode = mp_head;           //current node
+	Node * p_nxtNode = mp_head->mp_next;  //next node
+
+	while( p_nxtNode != 0  )
+	{
+		p_curNode->mp_next = p_prevNode; //reverse the link
+
+		p_prevNode = p_curNode;  //move nodes
+		p_curNode = p_nxtNode;   //move nodes
+		p_nxtNode = p_nxtNode->mp_next; //move nodes
 	}
+
+	p_curNode->mp_next = p_prevNode; //reverse the last node
+	mp_head = p_curNode; //the last node became the head node
+
 }

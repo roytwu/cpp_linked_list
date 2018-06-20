@@ -16,6 +16,10 @@ int main(){
 
 	o_list.deleteNode(5);
 
+	o_list.reverse();
+	o_list.printList();
+
+
 
 
 	cout << endl << "-----Clear list-----" << endl; 

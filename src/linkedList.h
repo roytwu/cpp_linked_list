@@ -32,7 +32,7 @@ public:
 	void pushBack(int x);  //addiing node from the bact
 	void deleteNode(int x); //deleting a node with data x
 	void clear();  //destroy the list and free the memory
-	void Reverse();
+	void reverse();
 
 };
 // ----- ----- ----- ----- -----
