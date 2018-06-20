@@ -40,6 +40,7 @@ void LinkedList::printList(){
 	cout << endl;
 }
 
+
 void LinkedList::pushFront(int x){
 	Node * p_newNode = new Node(x); //allocate new memory
 	debug_memAlloc();
@@ -47,6 +48,7 @@ void LinkedList::pushFront(int x){
 	(p_newNode->mp_next) = mp_head;  
 	mp_head = p_newNode;
 }
+
 
 void LinkedList::pushBack(int x){
 	Node * p_newNode = new Node(x);
@@ -64,6 +66,7 @@ void LinkedList::pushBack(int x){
 	}
 	p_curNode->mp_next = p_newNode;
 }
+
 
 void LinkedList::deleteNode(int x){	
 	if (mp_head == 0){ return; }
@@ -84,14 +87,13 @@ void LinkedList::deleteNode(int x){
 	}
 
 	p_nxtNode = p_curNode->mp_next;	
-	//search for the data to be deleted
-	while(p_nxtNode !=0)
-	{
+	while(p_nxtNode !=0) //search for the data to be deleted		
+	{	
 		p_nxtNode = p_curNode->mp_next;	
 		assert(cout << "case2 accessed" << endl);
 
 		//if the data has been found in nxt mode
-		if (p_nxtNode->m_data == x){
+		if(p_nxtNode->m_data == x){
 			assert(cout << "case2: delete a middle node" << endl);
 
 			(p_curNode->mp_next) = (p_nxtNode->mp_next);
@@ -101,9 +103,11 @@ void LinkedList::deleteNode(int x){
 			p_nxtNode = 0;
 		}
 		p_curNode = p_nxtNode; //moving one to check the next node
+		if(p_curNode->mp_next == 0) { return; }
 	}
 
 }
+
 
 void LinkedList::clear(){
 	while(mp_head != 0){
