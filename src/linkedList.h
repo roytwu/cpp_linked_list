@@ -1,5 +1,6 @@
 class LinkedList;
 
+// ----- ----- ----- ----- -----
 class Node{
 private:
 	int m_data;
@@ -10,14 +11,20 @@ public:
 
 	friend class LinkedList;
 };
+// ----- ----- ----- ----- -----
 
 
+// ----- ----- ----- ----- -----
 class LinkedList{
 private:
 	int m_size;
 	Node * mp_head;
+
 	static int new_total;
 	static int free_total;
+	void debug_memAlloc();
+	void debug_memFree();
+
 public:
 	LinkedList(): mp_head(0){};
 	void printList(); //print out linked list
@@ -28,4 +35,4 @@ public:
 	void Reverse();
 
 };
-
+// ----- ----- ----- ----- -----

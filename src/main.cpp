@@ -14,7 +14,7 @@ int main(){
 	o_list.pushBack(4);
 	o_list.printList();
 
-	o_list.deleteNode(2);
+	o_list.deleteNode(4);
 
 
 

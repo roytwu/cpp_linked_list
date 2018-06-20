@@ -1,4 +1,4 @@
-//#define NDEBUG  //work with assert()
+// #define NDEBUG  //work with assert()
 #include <assert.h>
 #include <iostream>
 #include "linkedList.h"
@@ -11,7 +11,22 @@ using std::endl;
 int LinkedList::new_total = 0;
 int LinkedList::free_total = 0;
 
+/*-----private functions-----*/
+void LinkedList::debug_memAlloc(){
+	assert(new_total += 1);
+	assert( printf("memory allocated... (%d)\n", new_total) );
+	return;
+}
 
+void LinkedList::debug_memFree(){
+	assert(free_total += 1);
+	assert( printf("memory allocated... (%d)\n", free_total) );
+	return;
+}
+
+
+
+/*-----public functions-----*/
 void LinkedList::printList(){
 	if(mp_head == 0){
 		cout << "List is empty.\n";
@@ -27,16 +42,15 @@ void LinkedList::printList(){
 
 void LinkedList::pushFront(int x){
 	Node * p_newNode = new Node(x); //allocate new memory
-	assert(new_total += 1);
-	assert( printf("memory allocated... (%d)\n", new_total) );
+	debug_memAlloc();
+
 	(p_newNode->mp_next) = mp_head;  
 	mp_head = p_newNode;
 }
 
 void LinkedList::pushBack(int x){
 	Node * p_newNode = new Node(x);
-	assert(new_total += 1);
-	assert( printf("memory allocated... (%d)\n", new_total) );
+	debug_memAlloc();
 
 	//if the list is empty, the newNode will be head node
 	if (mp_head == 0){
@@ -59,11 +73,12 @@ void LinkedList::deleteNode(int x){
 
 	//if the head itself hold the data to be deleted
 	if(p_curNode->m_data == x){
-		cout << "case1: delete head node" << endl;
+		assert(cout << "case1: delete head node" << endl);
+
 		mp_head = p_curNode->mp_next; //change head node
 		delete p_curNode;
-		assert(free_total +=1);
-		assert( printf("memory freed... (%d)\n", free_total) );
+		debug_memFree();
+
 		p_curNode =0;
 		return;
 	}
@@ -73,18 +88,18 @@ void LinkedList::deleteNode(int x){
 	while(p_nxtNode !=0)
 	{
 		p_nxtNode = p_curNode->mp_next;	
-		cout << "case2 accessed" << endl;
-		cout << p_nxtNode->m_data << endl;
+		assert(cout << "case2 accessed" << endl);
+
 		//if the data has been found in nxt mode
 		if (p_nxtNode->m_data == x){
-			cout << "case2: delete node with assigned data" << endl;
+			assert(cout << "case2: delete a middle node" << endl);
+
 			(p_curNode->mp_next) = (p_nxtNode->mp_next);
 			delete p_nxtNode;
-			assert(free_total +=1);
-			assert( printf("memory freed... (%d)\n", free_total) );
+			debug_memFree();
+
 			p_nxtNode = 0;
 		}
-
 		p_curNode = p_nxtNode; //moving one to check the next node
 	}
 
@@ -96,8 +111,8 @@ void LinkedList::clear(){
 		mp_head = (mp_head->mp_next);
 
 		delete p_curNode; //free memory
-		assert(free_total +=1);
-		assert( printf("memory freed... (%d)\n", free_total) );
+		debug_memFree();
+
 		p_curNode = 0;
 	}
 }
