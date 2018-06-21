@@ -93,7 +93,7 @@ void LinkedList_A::deleteNode(int x){
 		delete p_curNode;
 		debug_memFree();
 
-		p_curNode =0;
+		p_curNode =0; //setting unused pointer to NULL
 		m_size--;
 		return;
 	}
@@ -113,6 +113,7 @@ void LinkedList_A::deleteNode(int x){
 			delete p_nxtNode;
 			debug_memFree();
 
+			//setting unused pointer to NULL
 			p_nxtNode = 0;
 			m_size--;
 
@@ -132,7 +133,7 @@ void LinkedList_A::clear(){
 		delete p_curNode; //free memory
 		debug_memFree();
 
-		p_curNode = 0;	
+		p_curNode = 0; //setting unused pointer to NULL
 	}	
 	m_size = 0;
 }

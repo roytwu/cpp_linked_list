@@ -5,22 +5,22 @@
 class LinkedList_A;
 class LinkedList_B;
 
-// ----- ----- ----- ----- -----
+//------ ----- ----- ----- -----
 class Node{
 private:
 	int m_data;
 	Node * mp_next;
 public:
+	/*initialize pointer to NULL, defensive style*/
 	Node(): m_data(0), mp_next(0){};
 	Node(int a): m_data(a), mp_next(0){};
 
 	friend class LinkedList_A;
 	friend class LinkedList_B;
-};
-// ----- ----- ----- ----- -----
+};//---- ----- ----- ----- -----
 
 
-// ----- ----- ----- ----- -----
+//------ ----- ----- ----- -----
 //Singly linked list with head node only
 class LinkedList_A{ 
 private:
@@ -33,6 +33,7 @@ private:
 	void debug_memFree();
 
 public:
+	/*initialize pointer to NULL, defensive style*/
 	LinkedList_A(): m_size(0), mp_head(0){};
 	void printList(); //print out linked list
 	void pushFront(int x); //adding node from the front 
@@ -42,11 +43,10 @@ public:
 	void reverse();
 
 	int getListSize();
-};
-// ----- ----- ----- ----- -----
+};//---- ----- ----- ----- -----
 
 
-// ----- ----- ----- ----- -----
+//------ ----- ----- ----- -----
 //Singly linked list with head node and tail node
 class LinkedList_B{ 
 private:
@@ -61,6 +61,7 @@ private:
 	void push(int x, bool front);
 
 public:
+	/*initialize pointer to NULL, defensive style*/
 	LinkedList_B(): m_size(0), mp_head(0), mp_tail(0){};
 	void printList(); //print out linked list
 	void pushFront(int x); //adding node from the front
@@ -70,5 +71,4 @@ public:
 	void reverse();
 
 	int getListSize();
-};
-// ----- ----- ----- ----- -----
+};//---- ----- ----- ----- -----

@@ -89,7 +89,7 @@ void LinkedList_B::deleteNode(int x){
 		assert(cout << "case1: delete head node" << endl);
 
 		mp_head = p_curNode->mp_next; //change head node
-		
+
 		//if the new head is NULL, reset the taill as well
 		if (mp_head == 0){
 			mp_tail = 0;
@@ -98,8 +98,7 @@ void LinkedList_B::deleteNode(int x){
 		delete p_curNode;
 		debug_memFree();
 
-
-
+		//setting unused pointer to NULL, defensive style
 		p_curNode =0;
 		m_size--;
 		return;
@@ -126,6 +125,7 @@ void LinkedList_B::deleteNode(int x){
 			delete p_nxtNode;
 			debug_memFree();
 
+			//setting unused pointer to NULL, defensive style
 			p_nxtNode = 0;
 			m_size--;
 		}
@@ -148,13 +148,14 @@ void LinkedList_B::clear(){
 		//let curNode traverse, starting from head node 
 		Node * p_curNode = mp_head;
 		
-		//re-link head mode
+		//reset head mode
 		mp_head = (mp_head->mp_next);
 
 		delete p_curNode; //free memory
 		debug_memFree();
 
-		p_curNode = 0;
+		//setting unused pointer to NULL, defensive style
+		p_curNode = 0; 
 	} //while	
 
 	//after cleaning all the node, reset size to 0
