@@ -27,6 +27,8 @@ int main(){
 	o_list.pushBack(0);
 	o_list.printList();
 
+
+
 	int size = o_list.getListSize();
 	printf("There're %d nodes in the list.\n", size);
 

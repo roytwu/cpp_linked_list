@@ -89,8 +89,16 @@ void LinkedList_B::deleteNode(int x){
 		assert(cout << "case1: delete head node" << endl);
 
 		mp_head = p_curNode->mp_next; //change head node
+		
+		//if the new head is NULL, reset the taill as well
+		if (mp_head == 0){
+			mp_tail = 0;
+		} 
+		
 		delete p_curNode;
 		debug_memFree();
+
+
 
 		p_curNode =0;
 		m_size--;
