@@ -17,7 +17,13 @@ int main(){
 	o_list.pushBack('a');
 	o_list.printList();
 
+	o_list.deleteNode('a');
+	o_list.printList();
+
+
 	o_list.reverse();
+	o_list.pushFront(77);
+	o_list.pushBack(0);
 	o_list.printList();
 
 	int size = o_list.getListSize();
