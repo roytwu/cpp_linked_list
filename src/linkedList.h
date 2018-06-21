@@ -3,6 +3,7 @@
 
 
 class LinkedList_A;
+class LinkedList_B;
 
 // ----- ----- ----- ----- -----
 class Node{
@@ -57,6 +58,7 @@ private:
 	static int free_total;
 	void debug_memAlloc();
 	void debug_memFree();
+	void push(int x, bool front);
 
 public:
 	LinkedList_B(): m_size(0), mp_head(0), mp_tail(0){};

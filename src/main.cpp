@@ -9,7 +9,7 @@ using std::endl;
 
 int main(){
 	
-	LinkedList_A o_list;
+	LinkedList_B o_list;
 
 	o_list.pushFront(1);
 	o_list.pushFront(2);

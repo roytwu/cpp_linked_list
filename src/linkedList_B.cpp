@@ -25,7 +25,24 @@ void LinkedList_B::debug_memFree(){
 	return;
 }
 
+void LinkedList_B::push(int x, bool front){
+	Node * p_newNode = new Node(x);
+	debug_memAlloc();
 
+	//if the list is empty, the newNode will be head node
+	if(mp_head == 0){
+		mp_head = p_newNode;
+		mp_tail = p_newNode;
+	} else if(front == true){
+		(p_newNode->mp_next) = mp_head;  
+		mp_head = p_newNode;
+	} else{
+		(p_newNode->mp_next) = 0;  //point new node to NULL 
+		mp_tail->mp_next =p_newNode; //link tail node and the new node
+		mp_tail = p_newNode;  //let new node become tail node	
+	}
+	m_size++;
+}
 
 /*-----public functions-----*/
 //constructor
@@ -48,30 +65,13 @@ void LinkedList_B::printList(){ //same as LinkedList_A
 }
 
 
-void LinkedList_B::pushFront(int x){ //same as LinkedList_A
-	Node * p_newNode = new Node(x); //allocate new memory
-	debug_memAlloc();
-
-	(p_newNode->mp_next) = mp_head;  
-	mp_head = p_newNode;
-	m_size++;
+void LinkedList_B::pushFront(int x){ 
+	push(x, true);
 }
 
 
-void LinkedList_B::pushBack(int x){ //new
-	Node * p_newNode = new Node(x);
-	debug_memAlloc();
-
-	//if the list is empty, the newNode will be head node
-	if (mp_head == 0){
-		mp_head = p_newNode;
-		return;
-	}
-
-	(p_newNode->mp_next) = 0;  //point new node to NULL 
-	mp_tail->mp_next =p_newNode; //link tail node and the new node
-	mp_tail = p_newNode;  //let new node become tail node
-	m_size++;
+void LinkedList_B::pushBack(int x){ 
+	push(x, false);
 }
 
 
