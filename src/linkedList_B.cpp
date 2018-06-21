@@ -128,6 +128,7 @@ void LinkedList_B::deleteNode(int x){
 			//setting unused pointer to NULL, defensive style
 			p_nxtNode = 0;
 			m_size--;
+			return;
 		}
 
 		p_curNode = p_curNode->mp_next; //moving on to check the next node

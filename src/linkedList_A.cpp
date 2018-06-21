@@ -116,9 +116,15 @@ void LinkedList_A::deleteNode(int x){
 			//setting unused pointer to NULL
 			p_nxtNode = 0;
 			m_size--;
-
+			return;
 		}
+
 		p_curNode = p_curNode->mp_next;//moving on to check the next node
+		//already traverse to tail and find nothing 
+		if(p_curNode == 0l) { 
+			assert( cout << "Can't find matched node, return" << endl );
+			return; 
+		}
 	}//while
 
 }
