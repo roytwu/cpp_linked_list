@@ -1,3 +1,4 @@
+//This linked list structure has head node and tail node
 //File name: linkedList_B.cpp
 //author: Roy T Wu, roywu2018@gmail.com
 
@@ -96,7 +97,7 @@ void LinkedList_B::deleteNode(int x){
 		return;
 	}
 
-	//search for the data to be deleted	
+	//traverse to search for the data to be deleted	
 	p_nxtNode = p_curNode->mp_next;	
 	while(p_nxtNode !=0) 	
 	{	
@@ -105,7 +106,7 @@ void LinkedList_B::deleteNode(int x){
 
 		//if the data has been found in nxt mode
 		if(p_nxtNode->m_data == x){
-			assert(cout << "case2: delete a middle node" << endl);
+			assert(cout << "case2: delete a middle/tail node" << endl);
 
 			(p_curNode->mp_next) = (p_nxtNode->mp_next); //re-link
 
@@ -121,7 +122,7 @@ void LinkedList_B::deleteNode(int x){
 			m_size--;
 		}
 
-		p_curNode = p_nxtNode; //moving one to check the next node
+		p_curNode = p_curNode->mp_next; //moving on to check the next node
 
 		//already traverse to tail and find nothing 
 		if(p_curNode == mp_tail) { 

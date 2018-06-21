@@ -1,3 +1,4 @@
+//This linked list structure has only head node
 //File name: linkedList_A.cpp
 //author: Roy T Wu, roywu2018@gmail.com
 
@@ -21,7 +22,7 @@ void LinkedList_A::debug_memAlloc(){
 
 void LinkedList_A::debug_memFree(){
 	assert(free_total += 1);
-	assert( printf("memory allocated... (%d)\n", free_total) );
+	assert( printf("memory freed... (%d)\n", free_total) );
 	return;
 }
 
@@ -97,8 +98,9 @@ void LinkedList_A::deleteNode(int x){
 		return;
 	}
 
+	//traverse to search for the data to be deleted
 	p_nxtNode = p_curNode->mp_next;	
-	while(p_nxtNode !=0) //search for the data to be deleted		
+	while(p_nxtNode !=0) 		
 	{	
 		p_nxtNode = p_curNode->mp_next;	
 		assert(cout << "case2 accessed" << endl);
@@ -107,19 +109,16 @@ void LinkedList_A::deleteNode(int x){
 		if(p_nxtNode->m_data == x){
 			assert(cout << "case2: delete a middle node" << endl);
 
-			(p_curNode->mp_next) = (p_nxtNode->mp_next);
+			(p_curNode->mp_next) = (p_nxtNode->mp_next); //re-link
 			delete p_nxtNode;
 			debug_memFree();
 
 			p_nxtNode = 0;
-			m_size++;
+			m_size--;
+
 		}
-		p_curNode = p_nxtNode; //moving one to check the next node
-		if(p_curNode->mp_next == 0) { 
-			assert( cout << "Can't find matched node, return" << endl );
-			return; 
-		}
-	}
+		p_curNode = p_curNode->mp_next;//moving on to check the next node
+	}//while
 
 }
 
@@ -133,9 +132,9 @@ void LinkedList_A::clear(){
 		delete p_curNode; //free memory
 		debug_memFree();
 
-		p_curNode = 0;
-		m_size = 0;
+		p_curNode = 0;	
 	}	
+	m_size = 0;
 }
 
 
@@ -143,6 +142,7 @@ void LinkedList_A::reverse(){
 	//if list is empty or list has only 1 node
 	if (mp_head==0 || mp_head->mp_next==0){return;}
 
+	//delcare 3 nodes in order to traverse
 	Node * p_prevNode = 0;                //previous node
 	Node * p_curNode = mp_head;           //current node
 	Node * p_nxtNode = mp_head->mp_next;  //next node

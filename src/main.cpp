@@ -11,13 +11,14 @@ int main(){
 	
 	LinkedList_B o_list;
 
+	o_list.pushFront(3);
 	o_list.pushFront(1);
 	o_list.pushFront(2);
-	o_list.pushBack(3);
 	o_list.pushBack('a');
-	o_list.printList();
+	o_list.pushBack(3);
+	o_list.printList(); 
 
-	o_list.deleteNode('a');
+	o_list.deleteNode(3);
 	o_list.printList();
 
 
