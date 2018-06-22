@@ -2,45 +2,32 @@
 Linked list data structure in C++
 
 
-About
+📝 About
 -----
-Two classes for singly Linked List  
+Two classes for singly Linked List, most of the memeber functions are shared.  
 
-**LinkedList_A**: has head node reference  	
-| member function | Description |
-| --------------- | ----------- |
-|printList()  |adding node from the front|
-|pushFront()  |adding node from the front|
-|pushBack()   |addiing node from the back|
-|deleteNode() |deleting a node|
+**LinkedList_A**: has only head node reference   
+**LinkedList_B**: has head node and tail node reference
+
+| member function | Description | Note |
+| --------------- | ----------- | ---- |
+|printList()  |add a node from the front| 
+|pushFront()  |add a node from the front| 
+|pushBack()   |add a node from the back| 
+|deleteNode() |delete a node| 
 |clear()      |destroy the list and free the memory|   
 |reverse()    |reverse the list| 
 |isEmpty()    |tell if the list is empty or not|
-|getListSize()|get the number of members in the list|
+|getListSize()|get the number of nodes in the list|
 |getAt()      |get data from a specific node| 
-
-	
-
-**LinkedList_B**: has head node and tail node reference 
-| member function | Description |
-| --------------- | ----------- |
-|printList()  |adding node from the front|
-|pushFront()  |adding node from the front|
-|pushBack()   |addiing node from the back|
-|deleteNode() |deleting a node|
-|clear()      |destroy the list and free the memory|   
-|reverse()    |reverse the list| 
-|isEmpty()    |tell if the list is empty or not|
-|getListSize()|get the number of members in the list|
-|getAt()      |get data from a specific node| 
-|getFirst()   |get data from the head node|
-|getLast()    |get data from the tail node|
+|getFirst()   |get data from the head node| only in LinkedList_B
+|getLast()    |get data from the tail node| only in LinkedList_B
 
 
 
 
 
-Files
+💾 Files
 -----
 linkedList.h  
 linkedList_A.cpp  
@@ -49,11 +36,11 @@ main.cpp
 makefile  
 
 
-Author
+✏️ Author
 ------
 Roy T Wu
 
 
-Acknowledgements
+📚 Acknowledgements
 -------
 http://alrightchiu.github.io/SecondRound/queue-introjian-jie-bing-yi-linked-listshi-zuo.html
