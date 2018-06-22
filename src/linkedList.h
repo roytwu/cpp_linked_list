@@ -42,7 +42,9 @@ public:
 	void clear();  //destroy the list and free the memory
 	void reverse();
 
+	bool isEmpty(); //tell if the list is empty or not
 	int getListSize();
+	
 };//---- ----- ----- ----- -----
 
 
@@ -70,5 +72,11 @@ public:
 	void clear();  //destroy the list and free the memory
 	void reverse();
 
-	int getListSize();
+	/*the following function are useful in message queue*/
+	bool isEmpty(); //tell if the list is empty or not
+	int getListSize(); //get the number of members in the list
+	int getFirst(); //get data from the head node
+	int getLast();  //get data from the tail node
+	
+
 };//---- ----- ----- ----- -----

@@ -168,6 +168,13 @@ void LinkedList_A::reverse(){
 
 }
 
+
 int LinkedList_A::getListSize(){
 	return(m_size);	
+}
+
+
+bool LinkedList_A::isEmpty(){
+	return(m_size == 0);
+
 }

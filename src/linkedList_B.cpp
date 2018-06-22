@@ -1,4 +1,6 @@
-//This linked list structure has head node and tail node
+//This linked list structure has head node and tail node,
+//which can be applied to Message Queue 
+
 //File name: linkedList_B.cpp
 //author: Roy T Wu, roywu2018@gmail.com
 
@@ -189,6 +191,38 @@ void LinkedList_B::reverse(){
 
 }
 
+
+bool LinkedList_B::isEmpty(){
+	return(m_size == 0);
+
+}
+
+
 int LinkedList_B::getListSize(){
 	return(m_size);	
 }
+
+
+int LinkedList_B::getFirst(){
+
+	if (isEmpty() == true){
+		cout << "List is empty" << endl;
+		return -1;
+	} else {
+		return(mp_head->m_data);		
+	}
+}
+
+	
+int LinkedList_B::getLast(){
+	if (isEmpty() == true){
+		cout << "List is empty" << endl;
+		return -1;
+	} else {
+		return(mp_tail->m_data);		
+	}
+
+}
+
+
+

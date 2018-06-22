@@ -27,10 +27,13 @@ int main(){
 	o_list.pushBack(0);
 	o_list.printList();
 
+	//member function of LinkedList_B only
+	cout << "Data in head node:" << o_list.getFirst() << endl; 
+	cout << "Data in tail node:" << o_list.getLast() << endl;
 
 
 	int size = o_list.getListSize();
-	printf("There're %d nodes in the list.\n", size);
+	printf("\nThere're %d nodes in the list.\n", size);
 
 	cout << endl << "-----Clear list-----" << endl; 
 	o_list.clear();
