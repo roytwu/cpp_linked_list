@@ -76,9 +76,10 @@ public:
 	/*the following function are useful in message queue*/
 	bool isEmpty(); //tell if the list is empty or not
 	int getListSize(); //get the number of members in the list
+	int getAt(int pos); //get data from 'pos'-th node
 	int getFirst(); //get data from the head node
 	int getLast();  //get data from the tail node
-	int getAt(int pos); //get data from 'pos'-th node
+	
 	
 
 };//---- ----- ----- ----- -----
