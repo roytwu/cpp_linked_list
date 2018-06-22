@@ -40,10 +40,11 @@ public:
 	void pushBack(int x);  //addiing node from the back
 	void deleteNode(int x); //deleting a node with data x
 	void clear();  //destroy the list and free the memory
-	void reverse();
+	void reverse(); //reverse the list
 
 	bool isEmpty(); //tell if the list is empty or not
-	int getListSize();
+	int getListSize(); //get the number of members in the list
+	int getAt(int pos); //get data from 'pos'-th node
 	
 };//---- ----- ----- ----- -----
 
@@ -70,13 +71,14 @@ public:
 	void pushBack(int x);  //addiing node from the back
 	void deleteNode(int x); //deleting a node with data x
 	void clear();  //destroy the list and free the memory
-	void reverse();
+	void reverse(); //reverse the list
 
 	/*the following function are useful in message queue*/
 	bool isEmpty(); //tell if the list is empty or not
 	int getListSize(); //get the number of members in the list
 	int getFirst(); //get data from the head node
 	int getLast();  //get data from the tail node
+	int getAt(int pos); //get data from 'pos'-th node
 	
 
 };//---- ----- ----- ----- -----

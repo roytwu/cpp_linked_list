@@ -225,4 +225,18 @@ int LinkedList_B::getLast(){
 }
 
 
+int LinkedList_B::getAt(int pos){
+	if(pos >= m_size) {
+		cout << "Not getting any data." << endl;
+		return -1; 
+	}
+
+	Node * p_travNode = mp_head; //p_travNode: Node to traverse
+
+	for(int i=0; i<pos; i++){
+		p_travNode = (p_travNode->mp_next);
+	} 
+	return(p_travNode->m_data);
+}
+
 

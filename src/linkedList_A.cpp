@@ -169,12 +169,27 @@ void LinkedList_A::reverse(){
 }
 
 
+bool LinkedList_A::isEmpty(){
+	return(m_size == 0);
+
+}
+
+
 int LinkedList_A::getListSize(){
 	return(m_size);	
 }
 
 
-bool LinkedList_A::isEmpty(){
-	return(m_size == 0);
+int LinkedList_A::getAt(int pos){
+	if(pos >= m_size) {
+		cout << "Not getting any data." << endl;
+		return -1; 
+	}
 
+	Node * p_travNode = mp_head; //p_travNode: Node to traverse
+
+	for(int i=0; i<pos; i++){
+		p_travNode = (p_travNode->mp_next);
+	} 
+	return(p_travNode->m_data);
 }
